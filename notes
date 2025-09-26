@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Songfinches</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      margin: 20px;
+      padding: 20px;
+      font-size: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶 Songfinches</h1>
+  <p>Tap the finches to hear their song.</p>
+
+  <button onclick="playNote(261.63)">Finch 1 (Tonic)</button>
+  <button onclick="playNote(329.63)">Finch 2 (3rd)</button>
+  <button onclick="playNote(365)">Finch 3 (Wrong 5th)</button>
+
+  <script>
+    function playNote(frequency) {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+
+      gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      oscillator.start();
+      oscillator.stop(audioCtx.currentTime + 1); // plays for 1 second
+    }
+  </script>
+</body>
+</html>
