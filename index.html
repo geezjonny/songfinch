@@ -8,13 +8,16 @@
       font-family: sans-serif;
       text-align: center;
       margin-top: 50px;
+      background: #f0efe8;
     }
-    button {
+    .finch {
+      width: 120px;
       margin: 20px;
-      padding: 20px;
-      font-size: 20px;
-      border-radius: 10px;
       cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .finch:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -22,9 +25,12 @@
   <h1>🎶 Songfinches</h1>
   <p>Tap the finches to hear their song.</p>
 
-  <button onclick="playNote(261.63)">Finch 1 (Tonic)</button>
-  <button onclick="playNote(329.63)">Finch 2 (3rd)</button>
-  <button onclick="playNote(365)">Finch 3 (Wrong 5th)</button>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/House_finch_in_Prospect_Park_%2858236%29.jpg/320px-House_finch_in_Prospect_Park_%2858236%29.jpg" 
+       class="finch" onclick="playNote(261.63)" alt="Finch 1 (Tonic)">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/House_finch_in_Prospect_Park_%2858236%29.jpg/320px-House_finch_in_Prospect_Park_%2858236%29.jpg" 
+       class="finch" onclick="playNote(329.63)" alt="Finch 2 (3rd)">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/House_finch_in_Prospect_Park_%2858236%29.jpg/320px-House_finch_in_Prospect_Park_%2858236%29.jpg" 
+       class="finch" onclick="playNote(365)" alt="Finch 3 (Wrong 5th)">
 
   <script>
     function playNote(frequency) {
